@@ -96,6 +96,7 @@ export class View {
 	 */
 	_createElement(name) {
 		let el = document.createElement(name)
+		el.setAttribute('id', this.id)
 		el.view = this
 		return el
 	}
