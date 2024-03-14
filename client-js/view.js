@@ -109,6 +109,9 @@ export class View {
 		if (!this.el) {
 			this.setElement(this._createElement(this.tagName))
 		}
+		else {
+			this._addListeners()
+		}
 		this._setAttributes()
 		if (this.className) {
 			this.el.classList.add(this.className)
