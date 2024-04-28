@@ -76,13 +76,14 @@ And don't forget to call `render`, either before or after the element is added t
 import { View } from '@webhandle/backbone-view'
 
 class DollarView extends View {
-	preinitialize() {
-		this.events = {
+	preinitialize(options) {
+		this.events = Object.assign({}, {
 			'click .one': 'oneClicked',
 			'click .': function (evt) {
 				console.log(`${this.model} it got clicked`)
 			}
-		}
+		}, options.events)
+		options.events = this.events
 	}
 
 	render() {
